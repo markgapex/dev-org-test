@@ -2,9 +2,9 @@
 
 node {
 
-    def SF_CONSUMER_KEY='3MVG9pRzvMkjMb6kzcCOHp5V8Npy_cq7zVDqV4TuTOL9GX1V9mxY9l90Qjdzs5Jjd6qfuO2w7aJWyjTReW2aQ'
-    def SF_USERNAME='mac0605@mail.com'
-    def SERVER_KEY_CREDENTIALS_ID='53ea156b-e530-4e0c-9aec-0a4c3b541ad0'
+    def SF_CONSUMER_KEY=env.SF_CONSUMER_KEY
+    def SF_USERNAME=env.SF_USERNAME
+    def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='force-app'
     def TEST_LEVEL='RunLocalTests'
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://test.salesforce.com"
@@ -27,9 +27,7 @@ node {
     // JWT key credentials.
     // -------------------------------------------------------------------------
 
- 	withEnv(["HOME=${env.WORKSPACE}"]) {	
-	
-	    withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
+ 	withCredentials([file(credentialsId: SERVER_KEY_CREDENTIALS_ID, variable: 'server_key_file')]) {
 		// -------------------------------------------------------------------------
 		// Authenticate to Salesforce using the server key.
 		// -------------------------------------------------------------------------
@@ -39,6 +37,8 @@ node {
 		    if (rc != 0) {
 			error 'Salesforce org authorization failed.'
 		    }
+
+            println('Hello there!')
 		}
 
 
@@ -65,7 +65,6 @@ node {
 		//    }
 		//}
 	    }
-	}
 }
 
 def command(script) {
