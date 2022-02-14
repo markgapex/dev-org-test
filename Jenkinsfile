@@ -47,7 +47,7 @@ node {
 		// -------------------------------------------------------------------------
 
 		stage('Deploy and Run Tests') {
-		    rc = command "${toolbelt} force:mdapi:deploy --checkonly --zipfile test.zip --targetusername devorg --testlevel ${TEST_LEVEL} -w 10"
+		    rc = command "${toolbelt} force:mdapi:deploy --zipfile test.zip --targetusername devorg --testlevel ${TEST_LEVEL} -w 10"
 		    if (rc != 0) {
 			error 'Salesforce deploy and test run failed.'
 		    }
