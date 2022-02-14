@@ -6,7 +6,7 @@ node {
     def SF_USERNAME=env.SF_USERNAME
     def SERVER_KEY_CREDENTIALS_ID=env.SERVER_KEY_CREDENTIALS_ID
     def DEPLOYDIR='force-app'
-    def TEST_LEVEL='RunLocalTests'
+    def TEST_LEVEL='NoTestRun'
     def SF_INSTANCE_URL = env.SF_INSTANCE_URL ?: "https://d5j000006prziea0-dev-ed.lightning.force.com/"
 
 
