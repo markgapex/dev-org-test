@@ -4,5 +4,6 @@ public with sharing class testClass {
         System.debug('Im In!');
         System.debug('Push Notification Success');
         System.debug('Push Notification Success 2');
+        System.debug('Push Notification Success 3');
     }
 }
